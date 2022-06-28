@@ -5,6 +5,7 @@ from operator import length_hint
 import random
 import time
 
+    # Initial steps to invite in the game
 def main():
     print("\nIt is Hangman time!\n")
     name = input ("Enter your name: ")
@@ -13,6 +14,7 @@ def main():
     print("You need to save yourself.\n Run!")
     time.sleep(3)
 
+#The parameters required to execute the game
     global count
     global display
     global word
@@ -28,17 +30,19 @@ def main():
     already_guessed = []
     play_game = ""
 
+# Loop to re-execute the game
 def play_loop():
     global play_game
     play_game = input("Do you want another chance? Type Y for Yes and N for No. So?")
     while play_game not in ["Y", "N"]:
         play_game = input("Do you another chance? Type Y for Yes and N for No. So?")
-        if plat_game == "Y":
+        if play_game == "Y":
             main()
         elif play_game == "N":
             print("It was good while it lasted.")
             exit()
 
+#Initializing all the conditions required
 def hangman():
     global count
     global display
@@ -47,7 +51,6 @@ def hangman():
     global play_game
     limit = 5
     guess = input("Save yourself, guess the word: " + display + "Enter your guess: \n")
-   
     guess = guess.strip()
     if len(guess.strip()) == 0 or len(guess.strip()) >=2 or guess <="9":
         print("Ops, try again.\n")
@@ -61,6 +64,7 @@ def hangman():
         print(display + "\n")
     elif guess in already_guessed:
         print("Try another letter.\n")
+    else:
         count += 1
 
         if count == 1:
